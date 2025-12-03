@@ -1,5 +1,30 @@
-# Legacy Service - Poetry Only
-# This package has not been migrated to UV yet
+# Legacy Service - Mixed Configuration
+# This package has Poetry config but also PEP 621 for UV workspace compatibility
+
+[project]
+name = "legacy-service"
+version = "1.0.0"
+description = "Legacy service still using Poetry"
+requires-python = ">=3.10"
+
+dependencies = [
+    "fastapi>=0.109.0",
+    "uvicorn>=0.27.0",
+    "shared-lib",
+]
+
+[dependency-groups]
+dev = [
+    "pytest>=8.0.0",
+    "ruff>=0.3.0",
+]
+
+[tool.uv.sources]
+shared-lib = { workspace = true }
+
+# ==========================================
+# POETRY CONFIGURATION (FOR COMPATIBILITY)
+# ==========================================
 
 [tool.poetry]
 name = "legacy-service"
@@ -20,5 +45,5 @@ pytest = "^8.0.0"
 black = "^24.0.0"
 
 [build-system]
-requires = ["poetry-core>=1.0.0"]
-build-backend = "poetry.core.masonry.api"
+requires = ["hatchling"]
+build-backend = "hatchling.build"
