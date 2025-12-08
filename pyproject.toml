@@ -17,3 +17,5 @@ dev = [
     "mypy>=1.8.0",
 ]
 
+[tool.uv.sources]
+test-path-with-spaces = { workspace = true }
