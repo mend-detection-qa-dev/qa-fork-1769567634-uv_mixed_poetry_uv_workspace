@@ -18,4 +18,6 @@ dev = [
 ]
 
 [tool.uv.sources]
-test-path-with-spaces = { workspace = true }
+legacy-service = { workspace = true }
+new-service = { workspace = true }
+shared-lib = { workspace = true }
